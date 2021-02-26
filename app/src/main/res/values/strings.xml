@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">PetTrackerApp</string>
     <string name="title_activity_maps">Map</string>
+    <string name="Pets">Pets</string>
+    <string name="Map_Guide">Map Guide</string>
+    <string name="settings">Settings</string>
+    <string name="exit">Exit</string>
 </resources>
