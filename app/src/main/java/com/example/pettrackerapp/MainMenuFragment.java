@@ -34,7 +34,7 @@ public class MainMenuFragment extends Fragment {
         if (rotation == Surface.ROTATION_90 || rotation == Surface.ROTATION_270) {
             v = inflater.inflate(R.layout.fragment_game_options, container, false);
         } else {
-            v = inflater.inflate(R.layout.activity_main, container, false);
+            v = inflater.inflate(R.layout.fragment_game_options, container, false);
         }
 
         mContainer = container;
