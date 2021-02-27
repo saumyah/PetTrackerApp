@@ -16,6 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
@@ -24,6 +25,7 @@ import timber.log.Timber;
 public class MainMenuFragment extends Fragment {
 
     private ViewGroup mContainer;
+    private Bundle mSavedInstanceState;
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         Timber.d("onCreateView()");
@@ -41,6 +43,25 @@ public class MainMenuFragment extends Fragment {
         setRetainInstance(true);
 
         return v;
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        mSavedInstanceState = savedInstanceState;
+    }
+
+    public void onStart() {
+        super.onStart();
+        Timber.d("onStart()");
+    }
+    public void onResume() {
+        super.onResume();
+        Timber.d("onResume()");
+    }
+    public void onPause() {
+        super.onPause();
+        Timber.d("onPause()");
     }
 
     @Override
