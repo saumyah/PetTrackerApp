@@ -14,13 +14,13 @@
         android:text="@string/Pets" />
 
     <Button
-        android:id="@+id/buttonSettings"
+        android:id="@+id/buttonHelp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
-        android:text="@string/settings" />
+        android:text="@string/help" />
 
     <Button
         android:id="@+id/buttonExit"

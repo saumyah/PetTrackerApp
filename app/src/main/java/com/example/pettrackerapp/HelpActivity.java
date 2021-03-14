@@ -1,6 +1,7 @@
 package com.example.pettrackerapp;
 
-import android.app.Activity;
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -9,21 +10,21 @@ import android.widget.Button;
 
 import timber.log.Timber;
 
-public class MainMenuActivity extends Activity {
+public class HelpActivity extends AppCompatActivity {
 
-    private static final String TAG = "MainMenuActivity";
-    private Button mHelpButton;
+    private Button mBackButton;
+    private static final String TAG = "HelpActivity";
 
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.d(TAG, "onCreate()");
-        setContentView((R.layout.fragment_game_options));
-        mHelpButton = (Button) findViewById(R.id.buttonHelp);
-        mHelpButton.setOnClickListener(new View.OnClickListener() {
+        Log.d(TAG,"onCreate()");
+        setContentView(R.layout.activity_help);
+        mBackButton = (Button) findViewById(R.id.buttonBack);
+        mBackButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainMenuActivity.this, HelpActivity.class);
-                startActivity(intent);
+                onDestroy();
             }
         });
     }
@@ -35,7 +36,6 @@ public class MainMenuActivity extends Activity {
     public void onResume() {
         super.onResume();
         Log.d(TAG,"onResume()");
-        Timber.d("onResume()");
     }
     public void onPause() {
         super.onPause();
@@ -53,5 +53,4 @@ public class MainMenuActivity extends Activity {
         super.onDestroy();
         Log.d(TAG,"onDestroy()");
     }
-
 }

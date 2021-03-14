@@ -9,6 +9,7 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.Surface;
@@ -26,6 +27,8 @@ public class MainMenuFragment extends Fragment {
 
     private ViewGroup mContainer;
     private Bundle mSavedInstanceState;
+    private static final String TAG = "MainMenuFragment";
+
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         Timber.d("onCreateView()");
@@ -51,34 +54,11 @@ public class MainMenuFragment extends Fragment {
         mSavedInstanceState = savedInstanceState;
     }
 
-    public void onStart() {
-        super.onStart();
-        Timber.d("onStart()");
-    }
-    public void onResume() {
-        super.onResume();
-        Timber.d("onResume()");
-    }
-    public void onPause() {
-        super.onPause();
-        Timber.d("onPause()");
-    }
-
-    @Override
-    public void onStop() {
-        super.onStop();
-        Timber.d("onStop()");
-    }
-
     @Override
     public void onDestroyView() {
         super.onDestroyView();
+        Log.d(TAG,"onDestroyView()");
         Timber.d("onDestroyView()");
     }
 
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        Timber.d("onDestroy()");
-    }
 }
