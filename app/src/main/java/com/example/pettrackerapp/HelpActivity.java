@@ -24,7 +24,7 @@ public class HelpActivity extends AppCompatActivity {
         mBackButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onDestroy();
+                finish();
             }
         });
     }
