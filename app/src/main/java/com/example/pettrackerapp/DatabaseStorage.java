@@ -10,7 +10,6 @@ import timber.log.Timber;
 public class DatabaseStorage extends SQLiteOpenHelper {
      static final int DATABASE_VERSION = 1;
      static final String DATABASE_NAME = "PetsDatabase";
-     //public  SQLiteDatabase db;
 
      public DatabaseStorage(Context context) {
          super(context, DATABASE_NAME, null, DATABASE_VERSION);
