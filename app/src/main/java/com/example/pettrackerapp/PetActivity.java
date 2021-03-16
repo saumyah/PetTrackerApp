@@ -14,28 +14,28 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PetActivity extends AppCompatActivity {
+public class PetActivity extends AppCompatActivity  implements View.OnClickListener{
 
     private static final String TAG = "PetActivity";
     private Button mBackButton;
+    private Button mNextButton;
+    private Button mNextButton2;
     private Context mContext;
     private TextView mTextView;
+    private DatabaseStorage db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pet);
         mBackButton = (Button) findViewById(R.id.buttonBack2);
-        mBackButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
-
+        mBackButton.setOnClickListener(this);
+        mNextButton = (Button) findViewById(R.id.buttonNext);
+        mNextButton.setOnClickListener(this);
+        mNextButton2 = (Button) findViewById(R.id.buttonNext2);
+        mNextButton2.setOnClickListener(this);
         mTextView = findViewById(R.id.textView2);
-
-        DatabaseStorage db = new DatabaseStorage(this);
+        db = new DatabaseStorage(this);
 
         db.createPet("Spot", "Dog");
         db.createPet("Tabby","Cat");
@@ -47,6 +47,32 @@ public class PetActivity extends AppCompatActivity {
 
         mTextView.setText(petName1 + " " + petName2 + " " + petName3);
     }
+
+
+    @Override
+    public void onClick(View v) {
+        final int viewId = v.getId();
+        if(viewId == R.id.buttonBack2){
+            finish();
+        }
+        if(viewId == R.id.buttonNext){
+            db.updateEntry("Tiger","Cat",2);
+            String petName1 = db.retrieveEntry(1);
+            String petName2 = db.retrieveEntry(2);
+            String petName3 = db.retrieveEntry(3);
+
+            mTextView.setText(petName1 + " " + petName2 + " " + petName3);
+        }
+        if(viewId == R.id.buttonNext2){
+            db.deleteEntry(3);
+            String petName1 = db.retrieveEntry(1);
+            String petName2 = db.retrieveEntry(2);
+
+            mTextView.setText(petName1 + " " + petName2);
+        }
+
+    }
+
 
     public void onStart() {
         super.onStart();
