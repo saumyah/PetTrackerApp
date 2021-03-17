@@ -17,8 +17,8 @@ public class DatabaseStorage extends SQLiteOpenHelper {
      //create table
      @Override
      public void onCreate(SQLiteDatabase db){
-         db.execSQL("Create Table " + "PETS" + "(" + "ID " + "Integer Primary Key," + "NAME "
-                 + "Text," + "TYPE " + "Text" + ")");
+         db.execSQL("CREATE TABLE " + "PETS" + "(" + "ID " + " INTEGER PRIMARY KEY," + "NAME "
+                 + " TEXT, " + "TYPE " + " TEXT" + ")");
      }
      //upgrade table by dropping old table and creating new one
      @Override
@@ -38,14 +38,15 @@ public class DatabaseStorage extends SQLiteOpenHelper {
     }
     //retrieval
     public String retrieveEntry(int id){
-        SQLiteDatabase db = this.getWritableDatabase();
+        SQLiteDatabase db = this.getReadableDatabase();
          Cursor cursor = db.query("PETS", null, "ID=?", new String[]{String.valueOf(id)}, null, null, null);
-         if (cursor == null){
+        if (cursor == null){
              cursor.close();
              return "Pet does not exist";
          }
          cursor.moveToFirst();
          String name = cursor.getString(cursor.getColumnIndex("NAME"));
+        cursor.moveToFirst();
          cursor.close();
          db.close();
          return name;

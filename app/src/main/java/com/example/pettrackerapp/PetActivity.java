@@ -26,6 +26,7 @@ public class PetActivity extends AppCompatActivity  implements View.OnClickListe
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        this.deleteDatabase("PetsDatabase");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pet);
         mBackButton = (Button) findViewById(R.id.buttonBack2);
@@ -69,6 +70,8 @@ public class PetActivity extends AppCompatActivity  implements View.OnClickListe
             String petName2 = db.retrieveEntry(2);
 
             mTextView.setText(petName1 + " " + petName2);
+
+            this.deleteDatabase("PetsDatabase");
         }
 
     }
