@@ -6,7 +6,7 @@
     <string name="help">Help</string>
     <string name="exit">Exit</string>
     <string name="back">Back</string>
-    <string name="helpString">Help for the App.</string>
+    <string name="helpString">Help for the App. To use the app, create a new pet, and with the new pet created, now you can access the information along with a map guide and a food timer.</string>
     <string name="next">Next</string>
 
 </resources>
