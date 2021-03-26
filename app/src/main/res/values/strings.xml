@@ -8,5 +8,6 @@
     <string name="back">Back</string>
     <string name="helpString">Help for the App.</string>
     <string name="next">Next</string>
-
+    <string name="name_input">Pet's Name</string>
+    <string name="pet_info">Enter Your Pets Information</string>
 </resources>
