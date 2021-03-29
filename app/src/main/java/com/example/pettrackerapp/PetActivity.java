@@ -53,6 +53,7 @@ public class PetActivity extends AppCompatActivity  implements View.OnClickListe
     @Override
     public void onClick(View v) {
         final int viewId = v.getId();
+        // Check which button is being clicked
         if(viewId == R.id.buttonBack2){
             finish();
         }
