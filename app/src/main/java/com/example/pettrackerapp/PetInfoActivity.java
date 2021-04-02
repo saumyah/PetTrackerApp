@@ -4,9 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Button;
 
 public class PetInfoActivity extends AppCompatActivity {
     private static final String TAG = "PetInfoActivity";
+    private Button mSubmitButton;
+    private DatabaseStorage db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
