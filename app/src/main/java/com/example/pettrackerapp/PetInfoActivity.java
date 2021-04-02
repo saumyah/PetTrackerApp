@@ -11,7 +11,9 @@ public class PetInfoActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.d(TAG, "onCreate()");
         setContentView(R.layout.activity_pet_info);
+
     }
 
     public void onStart() {

@@ -14,11 +14,13 @@ public class MainMenuActivity extends Activity {
     private static final String TAG = "MainMenuActivity";
     private Button mHelpButton;
     private Button mPetsButton;
+    private Button mPetInfoButton;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.d(TAG, "onCreate()");
         setContentView((R.layout.fragment_game_options));
+        // Change activity based on which button was pressed
         mHelpButton = (Button) findViewById(R.id.buttonHelp);
         mHelpButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -32,6 +34,15 @@ public class MainMenuActivity extends Activity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainMenuActivity.this, PetActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        mPetInfoButton = (Button) findViewById(R.id.buttonPetInfo);
+        mPetInfoButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainMenuActivity.this, PetInfoActivity.class);
                 startActivity(intent);
             }
         });
