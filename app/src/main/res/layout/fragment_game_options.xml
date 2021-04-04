@@ -23,15 +23,6 @@
         android:text="@string/help" />
 
     <Button
-        android:id="@+id/buttonExit"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="8dp"
-        android:text="@string/exit" />
-
-    <Button
         android:id="@+id/buttonMaps"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -39,5 +30,23 @@
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
         android:text="@string/Map_Guide" />
+
+    <Button
+        android:id="@+id/buttonAlarm2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/alarm2" />
+
+    <Button
+        android:id="@+id/buttonExit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/exit" />
 
 </LinearLayout>

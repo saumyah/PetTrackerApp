@@ -12,4 +12,5 @@
     <string name="minute">Minutes</string>
     <string name="time">Set Time</string>
     <string name="alarm">Set Alarm</string>
+    <string name="alarm2">Alarm</string>
 </resources>

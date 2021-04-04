@@ -7,22 +7,12 @@ import android.app.PendingIntent;
 import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.Intent;
-import android.content.IntentSender;
 import android.os.Bundle;
-import android.os.PowerManager;
 import android.provider.AlarmClock;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TimePicker;
-import android.widget.Toast;
-import android.app.AlarmManager;
-import android.app.PendingIntent;
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.os.PowerManager;
 import android.widget.Toast;
 
 import java.util.Calendar;
@@ -48,13 +38,16 @@ public class AlarmActivity extends AppCompatActivity implements View.OnClickList
         setAlarm(context);
         setTime = findViewById(R.id.buttonTime);
         setTime.setOnClickListener(this);
-        setAlarm = findViewById(R.id.buttonAlarm);
+        setAlarm = findViewById(R.id.buttonAlarm2);
         setTime.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
         final int viewId = v.getId();
+        if(viewId == R.id.buttonBack2){
+            finish();
+        }
         if(viewId == R.id.buttonTime){
             calendar = Calendar.getInstance();
             currentHour = calendar.get(Calendar.HOUR_OF_DAY);
@@ -69,7 +62,7 @@ public class AlarmActivity extends AppCompatActivity implements View.OnClickList
 
             timePicker.show();
         }
-        if(viewId == R.id.buttonAlarm){
+        if(viewId == R.id.buttonAlarm2){
             if(!hour.getText().toString().isEmpty() && !min.getText().toString().isEmpty()) {
                 Intent intent = new Intent(AlarmClock.ACTION_SET_ALARM);
                 intent.putExtra(AlarmClock.EXTRA_HOUR, Integer.parseInt(hour.getText().toString()));

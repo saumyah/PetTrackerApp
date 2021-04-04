@@ -14,6 +14,7 @@ public class MainMenuActivity extends Activity {
     private static final String TAG = "MainMenuActivity";
     private Button mHelpButton;
     private Button mPetsButton;
+    private Button mAlarmButton;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +33,14 @@ public class MainMenuActivity extends Activity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainMenuActivity.this, PetActivity.class);
+                startActivity(intent);
+            }
+        });
+        mAlarmButton = (Button) findViewById(R.id.buttonAlarm2);
+        mAlarmButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainMenuActivity.this, AlarmActivity.class);
                 startActivity(intent);
             }
         });
