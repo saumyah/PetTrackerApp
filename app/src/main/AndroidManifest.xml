@@ -16,7 +16,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PetTrackerApp">
-        <activity android:name=".AlarmActivity"></activity>
+        <activity android:name=".MapActivity"></activity>
+        <activity android:name=".AlarmActivity" />
         <activity android:name=".PetActivity" />
         <activity android:name=".HelpActivity" />
         <activity android:name=".MainMenuActivity">

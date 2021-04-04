@@ -15,6 +15,7 @@ public class MainMenuActivity extends Activity {
     private Button mHelpButton;
     private Button mPetsButton;
     private Button mAlarmButton;
+    private Button mMapButton;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +42,14 @@ public class MainMenuActivity extends Activity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainMenuActivity.this, AlarmActivity.class);
+                startActivity(intent);
+            }
+        });
+        mMapButton = (Button) findViewById(R.id.buttonMaps);
+        mMapButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainMenuActivity.this, MapActivity.class);
                 startActivity(intent);
             }
         });
