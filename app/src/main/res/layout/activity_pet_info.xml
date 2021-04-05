@@ -6,84 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".PetInfoActivity">
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/pet_weight_input"
-        android:layout_width="166dp"
-        android:layout_height="59dp"
-        android:layout_marginStart="122dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="123dp"
-        android:layout_marginBottom="70dp"
-        android:hint="@string/weight_input"
-        android:visibility="visible"
-        app:layout_constraintBottom_toTopOf="@+id/buttonSubmit"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pet_sex_input"
-        app:layout_constraintVertical_bias="0.0"
-        tools:visibility="visible" />
-
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/pet_sex_input"
-        android:layout_width="166dp"
-        android:layout_height="59dp"
-        android:layout_marginStart="122dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="123dp"
-        android:hint="@string/sex_input"
-        android:visibility="visible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pet_age_input"
-        tools:visibility="visible" />
-
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/pet_age_input"
-        android:layout_width="166dp"
-        android:layout_height="59dp"
-        android:layout_marginStart="122dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="123dp"
-        android:hint="@string/age_input"
-        android:visibility="visible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pet_type_input"
-        tools:visibility="visible" />
-
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/pet_type_input"
-        android:layout_width="166dp"
-        android:layout_height="59dp"
-        android:layout_marginStart="122dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="123dp"
-        android:hint="@string/type_input"
-        android:visibility="visible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pet_name_input"
-        tools:visibility="visible" />
-
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/pet_name_input"
-        android:layout_width="166dp"
-        android:layout_height="59dp"
-        android:layout_marginStart="122dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="123dp"
-        android:hint="@string/name_input"
-        android:visibility="visible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/PetInfoTitle"
-        tools:visibility="visible" />
-
     <TextView
         android:id="@+id/PetInfoTitle"
         android:layout_width="wrap_content"
@@ -98,17 +20,110 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/pet_name_input"
+        android:layout_width="166dp"
+        android:layout_height="59dp"
+        android:layout_marginStart="122dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="123dp"
+        android:hint="@string/name_input"
+        android:inputType="text"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/PetInfoTitle"
+        tools:visibility="visible" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/pet_type_input"
+        android:layout_width="166dp"
+        android:layout_height="59dp"
+        android:layout_marginStart="122dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="123dp"
+        android:hint="@string/type_input"
+        android:inputType="text"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pet_name_input"
+        tools:visibility="visible" />
+
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/pet_age_input"
+        android:layout_width="166dp"
+        android:layout_height="59dp"
+        android:layout_marginStart="122dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="123dp"
+        android:hint="@string/age_input"
+        android:inputType="number"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pet_type_input"
+        tools:visibility="visible" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/pet_sex_input"
+        android:layout_width="166dp"
+        android:layout_height="59dp"
+        android:layout_marginStart="122dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="123dp"
+        android:hint="@string/sex_input"
+        android:inputType="text"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pet_age_input"
+        tools:visibility="visible" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/pet_weight_input"
+        android:layout_width="166dp"
+        android:layout_height="59dp"
+        android:layout_marginStart="122dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="123dp"
+        android:layout_marginBottom="70dp"
+        android:hint="@string/weight_input"
+        android:inputType="number"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/buttonSubmit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pet_sex_input"
+        app:layout_constraintVertical_bias="0.0"
+        tools:visibility="visible" />
+
     <Button
         android:id="@+id/buttonSubmit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="159dp"
         android:layout_marginEnd="159dp"
-        android:layout_marginBottom="180dp"
+        android:layout_marginBottom="72dp"
         android:text="@string/submit_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

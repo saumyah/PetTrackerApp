@@ -15,6 +15,6 @@
     <string name="sex_input">Sex</string>
     <string name="weight_input">Weight</string>
     <string name="submit_button">Submit</string>
-
+    <string name="info_button">Enter Info</string>
 
 </resources>

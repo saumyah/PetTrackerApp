@@ -47,10 +47,9 @@ public class PetInfoActivity extends AppCompatActivity {
                 );
 
                 db.createPet(mPetName.getText().toString(),
-                        mPetType.getText().toString());
-                //,
-                //                        Integer.parseInt(mPetAge.getText().toString()), mPetSex.getText().toString(), Integer.parseInt(mPetWeight.getText().toString())
-                //
+                        mPetType.getText().toString(),
+                        Integer.parseInt(mPetAge.getText().toString()), mPetSex.getText().toString(), Integer.parseInt(mPetWeight.getText().toString())
+                        );
 
                 mPetName.setText(R.string.name_input);
                 mPetType.setText(R.string.type_input);
