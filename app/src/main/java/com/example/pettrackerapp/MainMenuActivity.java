@@ -31,7 +31,7 @@ public class MainMenuActivity extends Activity {
         mPetsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainMenuActivity.this, PetActivity.class);
+                Intent intent = new Intent(MainMenuActivity.this, PetInfoActivity.class);
                 startActivity(intent);
             }
         });

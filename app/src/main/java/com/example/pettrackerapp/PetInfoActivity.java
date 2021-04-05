@@ -2,16 +2,64 @@ package com.example.pettrackerapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.text.SpannableStringBuilder;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 
 public class PetInfoActivity extends AppCompatActivity {
     private static final String TAG = "PetInfoActivity";
+    private EditText mPetName;
+    private EditText mPetType;
+    private EditText mPetAge;
+    private EditText mPetSex;
+    private EditText mPetWeight;
+    private Button mSubmitButton;
+    private DatabaseStorage db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.d(TAG, "onCreate()");
         setContentView(R.layout.activity_pet_info);
+        db = new DatabaseStorage(this);
+
+        mPetName =(EditText)findViewById(R.id.pet_name_input);
+        mPetType =(EditText)findViewById(R.id.pet_type_input);
+        mPetAge =(EditText)findViewById(R.id.pet_age_input);
+        mPetSex =(EditText)findViewById(R.id.pet_sex_input);
+        mPetWeight =(EditText)findViewById(R.id.pet_weight_input);
+
+        mSubmitButton = (Button) findViewById(R.id.buttonSubmit);
+
+        mSubmitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d(TAG,
+                        "\nName: " + mPetName.getText()
+                                + "\nType: " + mPetType.getText()
+                                + "\nAge: " + mPetAge.getText()
+                                + "\nSex: " + mPetSex.getText()
+                                + "\nWeight: " + mPetWeight.getText()
+                );
+
+                db.createPet(mPetName.getText().toString(),
+                        mPetType.getText().toString());
+                //,
+                //                        Integer.parseInt(mPetAge.getText().toString()), mPetSex.getText().toString(), Integer.parseInt(mPetWeight.getText().toString())
+                //
+
+                mPetName.setText(R.string.name_input);
+                mPetType.setText(R.string.type_input);
+                mPetAge.setText(R.string.age_input);
+                mPetSex.setText(R.string.sex_input);
+                mPetWeight.setText(R.string.weight_input);
+            }
+        });
+
     }
 
     public void onStart() {
