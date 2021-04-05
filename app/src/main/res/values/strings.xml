@@ -6,7 +6,7 @@
     <string name="help">Help</string>
     <string name="exit">Exit</string>
     <string name="back">Back</string>
-    <string name="helpString">Help for the App.</string>
+    <string name="helpString">Help for the App. To use the app, create a new pet, and with the new pet created, now you can access the information along with a map guide and a food timer.</string>
     <string name="next">Next</string>
     <string name="pet_info">Enter Your Pet\'s Information</string>
     <string name="name_input">Name</string>
@@ -16,5 +16,9 @@
     <string name="weight_input">Weight</string>
     <string name="submit_button">Submit</string>
     <string name="info_button">Enter Info</string>
-
+    <string name="hour">Hour</string>
+    <string name="minute">Minutes</string>
+    <string name="time">Set Time</string>
+    <string name="alarm">Set Alarm</string>
+    <string name="alarm2">Alarm</string>
 </resources>
