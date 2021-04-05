@@ -35,7 +35,6 @@ public class AlarmActivity extends AppCompatActivity implements View.OnClickList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alarm);
-        setAlarm(context);
         setTime = findViewById(R.id.buttonTime);
         setTime.setOnClickListener(this);
         setAlarm = findViewById(R.id.buttonAlarm2);
@@ -68,7 +67,11 @@ public class AlarmActivity extends AppCompatActivity implements View.OnClickList
                 intent.putExtra(AlarmClock.EXTRA_HOUR, Integer.parseInt(hour.getText().toString()));
                 intent.putExtra(AlarmClock.EXTRA_MINUTES, Integer.parseInt(min.getText().toString()));
                 intent.putExtra(AlarmClock.EXTRA_MESSAGE, "Time to feed your pet");
-                startActivity(intent);
+                if(intent.resolveActivity(getPackageManager()) != null) {
+                    startActivity(intent);
+                }else{
+                    Toast.makeText(AlarmActivity.this, "No Supporting Apps", Toast.LENGTH_SHORT).show();
+                }
             }
             else{
                 Toast.makeText(AlarmActivity.this, "Please choose a time", Toast.LENGTH_SHORT).show();
@@ -78,22 +81,6 @@ public class AlarmActivity extends AppCompatActivity implements View.OnClickList
 
     }
 
-
-    public void setAlarm(Context context)
-    {
-        AlarmManager am =( AlarmManager)context.getSystemService(Context.ALARM_SERVICE);
-        Intent i = new Intent(context, AlarmActivity.class);
-        PendingIntent pi = PendingIntent.getBroadcast(context, 0, i, 0);
-        am.setRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(), 1000 * 60 * 10, pi); // Millisec * Second * Minute
-    }
-
-    public void cancelAlarm(Context context)
-    {
-        Intent intent = new Intent(context, AlarmActivity.class);
-        PendingIntent sender = PendingIntent.getBroadcast(context, 0, intent, 0);
-        AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-        alarmManager.cancel(sender);
-    }
 
     public void onStart() {
         super.onStart();
