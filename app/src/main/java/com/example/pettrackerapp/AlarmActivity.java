@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import java.util.Calendar;
@@ -52,11 +53,12 @@ public class AlarmActivity extends AppCompatActivity implements View.OnClickList
             currentHour = calendar.get(Calendar.HOUR_OF_DAY);
             currentMinute = calendar.get(Calendar.MINUTE);
 
-            timePicker = new TimePickerDialog(AlarmActivity.this, (timePicker, hourOfDay, minute) -> {
-                hour.setText(String.format("%02d", hourOfDay));
-                min.setText(String.format("%02d", minute));
-
-
+            timePicker = new TimePickerDialog(AlarmActivity.this, new TimePickerDialog.OnTimeSetListener() {
+                @Override
+                public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                    hour.setText(String.format("%02d", hourOfDay));
+                    min.setText(String.format("%02d", minute));
+                }
             }, currentHour, currentMinute, false);
 
             timePicker.show();
