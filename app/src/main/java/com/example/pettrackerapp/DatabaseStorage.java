@@ -18,7 +18,7 @@ public class DatabaseStorage extends SQLiteOpenHelper {
      @Override
      public void onCreate(SQLiteDatabase db){
          db.execSQL("CREATE TABLE " + "PETS" + "(" + "ID " + " INTEGER PRIMARY KEY," + "NAME "
-                 + " TEXT, " + "TYPE " + " TEXT" + ")");
+                 + " TEXT, " + "TYPE " + " TEXT," + "AGE " + " INTEGER," + "SEX " + " TEXT," + "WEIGHT " + " INTEGER" + ")");
      }
      //upgrade table by dropping old table and creating new one
      @Override
@@ -28,11 +28,15 @@ public class DatabaseStorage extends SQLiteOpenHelper {
      }
      // CRUD Operations
     //creation
-    public void createPet(String name, String type){
+    public void createPet(String name, String type, int age, String sex, int weight){
          SQLiteDatabase db = this.getWritableDatabase();
          ContentValues newVals = new ContentValues();
          newVals.put("NAME", name);
          newVals.put("TYPE", type);
+         newVals.put("AGE", age);
+         newVals.put("SEX", sex);
+         newVals.put("WEIGHT", weight);
+
          db.insert("PETS", null, newVals);
          db.close();
     }
@@ -51,12 +55,18 @@ public class DatabaseStorage extends SQLiteOpenHelper {
          db.close();
          return name;
     }
+
     //update
-    public void updateEntry(String name, String type, int id){
+    public void updateEntry(String name, String type, int id, int age, String sex, int weight){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues newVals = new ContentValues();
+
         newVals.put("NAME", name);
         newVals.put("TYPE", type);
+        newVals.put("AGE", age);
+        newVals.put("SEX", sex);
+        newVals.put("WEIGHT", weight);
+
         db.update("PETS", newVals, "ID = ?", new String[] {String.valueOf(id)});
         db.close();
     }

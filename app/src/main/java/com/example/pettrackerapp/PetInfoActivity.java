@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.SpannableStringBuilder;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -24,6 +25,7 @@ public class PetInfoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         Log.d(TAG, "onCreate()");
         setContentView(R.layout.activity_pet_info);
+        db = new DatabaseStorage(this);
 
         mPetName =(EditText)findViewById(R.id.pet_name_input);
         mPetType =(EditText)findViewById(R.id.pet_type_input);
@@ -43,6 +45,12 @@ public class PetInfoActivity extends AppCompatActivity {
                                 + "\nSex: " + mPetSex.getText()
                                 + "\nWeight: " + mPetWeight.getText()
                 );
+
+                db.createPet(mPetName.getText().toString(),
+                        mPetType.getText().toString(),
+                        Integer.parseInt(mPetAge.getText().toString()), mPetSex.getText().toString(), Integer.parseInt(mPetWeight.getText().toString())
+                        );
+
                 mPetName.setText(R.string.name_input);
                 mPetType.setText(R.string.type_input);
                 mPetAge.setText(R.string.age_input);

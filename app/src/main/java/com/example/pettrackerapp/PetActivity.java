@@ -38,15 +38,12 @@ public class PetActivity extends AppCompatActivity  implements View.OnClickListe
         mTextView = findViewById(R.id.textView2);
         db = new DatabaseStorage(this);
 
-        db.createPet("Spot", "Dog");
-        db.createPet("Tabby","Cat");
-        db.createPet("Blue","Bird");
 
-        String petName1 = db.retrieveEntry(1);
-        String petName2 = db.retrieveEntry(2);
-        String petName3 = db.retrieveEntry(3);
 
-        mTextView.setText(petName1 + " " + petName2 + " " + petName3);
+//        String petName1 = db.retrieveEntry(1);
+//        String petName2 = db.retrieveEntry(2);
+//        String petName3 = db.retrieveEntry(3);
+//        mTextView.setText(petName1 + " " + petName2 + " " + petName3);
     }
 
 
@@ -58,19 +55,17 @@ public class PetActivity extends AppCompatActivity  implements View.OnClickListe
             finish();
         }
         if(viewId == R.id.buttonNext){
-            db.updateEntry("Tiger","Cat",2);
-            String petName1 = db.retrieveEntry(1);
-            String petName2 = db.retrieveEntry(2);
-            String petName3 = db.retrieveEntry(3);
-
-            mTextView.setText(petName1 + " " + petName2 + " " + petName3);
+//            db.updateEntry("Tiger","Cat",2);
+//            String petName1 = db.retrieveEntry(1);
+//            String petName2 = db.retrieveEntry(2);
+//            String petName3 = db.retrieveEntry(3);
+//            mTextView.setText(petName1 + " " + petName2 + " " + petName3);
         }
         if(viewId == R.id.buttonNext2){
-            db.deleteEntry(3);
-            String petName1 = db.retrieveEntry(1);
-            String petName2 = db.retrieveEntry(2);
-
-            mTextView.setText(petName1 + " " + petName2);
+//            db.deleteEntry(3);
+//            String petName1 = db.retrieveEntry(1);
+//            String petName2 = db.retrieveEntry(2);
+//            mTextView.setText(petName1 + " " + petName2);
 
             this.deleteDatabase("PetsDatabase");
         }
