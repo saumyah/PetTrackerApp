@@ -20,7 +20,6 @@ public class PetActivity extends AppCompatActivity  implements View.OnClickListe
     private Button mBackButton;
     private Button mNextButton;
     private Button mNextButton2;
-    private Context mContext;
     private TextView mTextView;
     private DatabaseStorage db;
 
