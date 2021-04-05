@@ -66,4 +66,9 @@ public class DatabaseStorage extends SQLiteOpenHelper {
         db.delete("PETS", "ID = ?", new String[] {String.valueOf(id)});
         db.close();
     }
+    public void deleteAll(int id){
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete("PETS", "ID = ?", new String[] {String.valueOf(id)});
+        db.close();
+    }
 }

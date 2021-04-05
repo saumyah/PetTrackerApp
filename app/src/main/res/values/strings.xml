@@ -13,4 +13,6 @@
     <string name="time">Set Time</string>
     <string name="alarm">Set Alarm</string>
     <string name="alarm2">Alarm</string>
+    <string name="delete">Delete All</string>
+    <string name="settings">Settings</string>
 </resources>
