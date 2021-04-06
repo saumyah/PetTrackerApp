@@ -29,6 +29,7 @@
             </intent-filter>
         </activity>
 
+        <receiver android:name=".AlertReceiver"/>
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyCkUm52ETxYaT-KB7sC6JAyMejNB5_rZnU"/>

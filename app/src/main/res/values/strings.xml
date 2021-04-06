@@ -16,9 +16,8 @@
     <string name="weight_input">Weight</string>
     <string name="submit_button">Submit</string>
     <string name="info_button">Enter Info</string>
-    <string name="hour">Hour</string>
-    <string name="minute">Minutes</string>
-    <string name="time">Set Time</string>
     <string name="alarm">Set Alarm</string>
     <string name="alarm2">Alarm</string>
+    <string name="alarm3">Please Set Alarm</string>
+    <string name="cancel">Cancel</string>
 </resources>
