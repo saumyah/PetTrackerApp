@@ -19,6 +19,7 @@ public class MainMenuActivity extends Activity {
     private Button mPetInfoButton;
     private Button mAlarmButton;
     private Button mMapButton;
+    private Button mExitButton;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,6 +63,13 @@ public class MainMenuActivity extends Activity {
             public void onClick(View v) {
                 Intent intent = new Intent(MainMenuActivity.this, MapActivity.class);
                 startActivity(intent);
+            }
+        });
+        mExitButton = (Button) findViewById(R.id.buttonExit);
+        mExitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onDestroy();
             }
         });
     }
