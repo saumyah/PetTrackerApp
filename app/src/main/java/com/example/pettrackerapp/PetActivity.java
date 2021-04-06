@@ -41,7 +41,7 @@ public class PetActivity extends AppCompatActivity  implements View.OnClickListe
             finish();
         }
         if(viewId == R.id.buttonRefresh){
-            mTextView.setText(db.retrieveEntry(0));
+            mTextView.setText(db.toString());
         }
     }
 
