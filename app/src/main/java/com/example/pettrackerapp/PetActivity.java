@@ -10,6 +10,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.io.File;
+
 public class PetActivity extends AppCompatActivity  implements View.OnClickListener{
 
     private static final String TAG = "PetActivity";
@@ -28,7 +30,8 @@ public class PetActivity extends AppCompatActivity  implements View.OnClickListe
         mRefresh = (Button) findViewById(R.id.buttonRefresh);
         mRefresh.setOnClickListener(this);
         mTextView = findViewById(R.id.textView2);
-        db = new DatabaseStorage(this);
+        File databasePath = getDatabasePath("PetsDatabase");
+        SQLiteDatabase sql = SQLiteDatabase.openDatabase(databasePath.getAbsolutePath(), null, SQLiteDatabase.OPEN_READWRITE);
         mTextView = (TextView) findViewById(R.id.textView2);
     }
 
@@ -41,7 +44,7 @@ public class PetActivity extends AppCompatActivity  implements View.OnClickListe
             finish();
         }
         if(viewId == R.id.buttonRefresh){
-            mTextView.setText(db.toString());
+            mTextView.setText(db.getDatabaseName());
         }
     }
 
