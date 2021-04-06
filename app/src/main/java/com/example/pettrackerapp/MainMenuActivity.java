@@ -71,6 +71,7 @@ public class MainMenuActivity extends Activity {
         mExitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                deleteDatabase("PetsDatabase");
                 finish();
             }
         });

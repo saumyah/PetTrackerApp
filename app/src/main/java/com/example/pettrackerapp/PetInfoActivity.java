@@ -25,7 +25,7 @@ public class PetInfoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         Log.d(TAG, "onCreate()");
         setContentView(R.layout.activity_pet_info);
-        db = new DatabaseStorage(this);
+        db = DatabaseStorage.getInstance(this);
 
         mPetName =(EditText)findViewById(R.id.pet_name_input);
         mPetType =(EditText)findViewById(R.id.pet_type_input);

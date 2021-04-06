@@ -5,11 +5,18 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import timber.log.Timber;
 
 public class DatabaseStorage extends SQLiteOpenHelper {
      static final int DATABASE_VERSION = 1;
      static final String DATABASE_NAME = "PetsDatabase";
+    private static DatabaseStorage sInstance;
+    private static final String TAG = "DatabaseStorage";
 
      public DatabaseStorage(Context context) {
          super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -41,19 +48,34 @@ public class DatabaseStorage extends SQLiteOpenHelper {
          db.close();
     }
     //retrieval
-    public String retrieveEntry(int id){
-        SQLiteDatabase db = this.getReadableDatabase();
-         Cursor cursor = db.query("PETS", null, "ID=?", new String[]{String.valueOf(id)}, null, null, null);
-        if (cursor == null){
-             cursor.close();
-             return "Pet does not exist";
-         }
-         cursor.moveToFirst();
-         String name = cursor.getString(cursor.getColumnIndex("NAME"));
-        cursor.moveToFirst();
-         cursor.close();
-         db.close();
-         return name;
+    public List<Pet> retrieveEntry(){
+        List<Pet> pets = new ArrayList<>();
+        String PETS_SELECT_QUERY =
+                String.format("SELECT * FROM %s", "PETS");
+
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor cursor = db.rawQuery(PETS_SELECT_QUERY, null);
+        try {
+            if (cursor.moveToFirst()) {
+                do {
+                    Pet newPet = new Pet();
+                    newPet.name = cursor.getString(cursor.getColumnIndex("NAME"));
+                    newPet.type = cursor.getString(cursor.getColumnIndex("TYPE"));
+                    newPet.age = cursor.getInt(cursor.getColumnIndex("AGE"));
+                    newPet.sex = cursor.getString(cursor.getColumnIndex("SEX"));
+                    newPet.weight = cursor.getInt(cursor.getColumnIndex("WEIGHT"));
+                    pets.add(newPet);
+                } while(cursor.moveToNext());
+            }
+        } catch (Exception e) {
+            Log.d(TAG, "Error while trying to get posts from database");
+        } finally {
+            if (cursor != null && !cursor.isClosed()) {
+                cursor.close();
+            }
+        }
+        return pets;
+
     }
 
     //update
@@ -75,5 +97,15 @@ public class DatabaseStorage extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete("PETS", "ID = ?", new String[] {String.valueOf(id)});
         db.close();
+    }
+
+    public static synchronized DatabaseStorage getInstance(Context context) {
+        // Use the application context, which will ensure that you
+        // don't accidentally leak an Activity's context.
+        // See this article for more information: http://bit.ly/6LRzfx
+        if (sInstance == null) {
+            sInstance = new DatabaseStorage(context.getApplicationContext());
+        }
+        return sInstance;
     }
 }

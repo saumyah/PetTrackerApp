@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import java.io.File;
+import java.util.List;
 
 public class PetActivity extends AppCompatActivity  implements View.OnClickListener{
 
@@ -22,7 +23,6 @@ public class PetActivity extends AppCompatActivity  implements View.OnClickListe
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        this.deleteDatabase("PetsDatabase");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pet);
         mBackButton = (Button) findViewById(R.id.buttonBack2);
@@ -30,10 +30,7 @@ public class PetActivity extends AppCompatActivity  implements View.OnClickListe
         mRefresh = (Button) findViewById(R.id.buttonRefresh);
         mRefresh.setOnClickListener(this);
         mTextView = findViewById(R.id.textView2);
-//        File databasePath = getDatabasePath("PetsDatabase");
-//        SQLiteDatabase sql = SQLiteDatabase.openDatabase(databasePath.getAbsolutePath(), null, SQLiteDatabase.OPEN_READWRITE);
-
-        db = new DatabaseStorage(this);
+        db = DatabaseStorage.getInstance(this);
     }
 
 
@@ -45,7 +42,12 @@ public class PetActivity extends AppCompatActivity  implements View.OnClickListe
             finish();
         }
         if(viewId == R.id.buttonRefresh){
-            mTextView.setText(db.getDatabaseName());
+            List<Pet> pets = db.retrieveEntry();
+            while(pets.size() > 0){
+                Pet pet = pets.remove(0);
+                mTextView.append(pet.name + " " + pet.type + " " + pet.age + " " + pet.sex + " " + pet.weight);
+                mTextView.append("\n");
+            }
         }
     }
 
