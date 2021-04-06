@@ -30,9 +30,10 @@ public class PetActivity extends AppCompatActivity  implements View.OnClickListe
         mRefresh = (Button) findViewById(R.id.buttonRefresh);
         mRefresh.setOnClickListener(this);
         mTextView = findViewById(R.id.textView2);
-        File databasePath = getDatabasePath("PetsDatabase");
-        SQLiteDatabase sql = SQLiteDatabase.openDatabase(databasePath.getAbsolutePath(), null, SQLiteDatabase.OPEN_READWRITE);
-        mTextView = (TextView) findViewById(R.id.textView2);
+//        File databasePath = getDatabasePath("PetsDatabase");
+//        SQLiteDatabase sql = SQLiteDatabase.openDatabase(databasePath.getAbsolutePath(), null, SQLiteDatabase.OPEN_READWRITE);
+
+        db = new DatabaseStorage(this);
     }
 
 
