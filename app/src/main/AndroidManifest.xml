@@ -17,22 +17,25 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PetTrackerApp">
-        <activity android:name=".PetInfoActivity"></activity>
-        <activity android:name=".MapActivity"></activity>
+        <activity android:name=".SettingsActivity"></activity>
+        <activity android:name=".PetInfoActivity" />
+        <activity android:name=".MapActivity" />
         <activity android:name=".AlarmActivity" />
         <activity android:name=".PetActivity" />
         <activity android:name=".HelpActivity" />
         <activity android:name=".MainMenuActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <receiver android:name=".AlertReceiver"/>
+        <receiver android:name=".AlertReceiver" />
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyCkUm52ETxYaT-KB7sC6JAyMejNB5_rZnU"/>
+            android:value="AIzaSyCkUm52ETxYaT-KB7sC6JAyMejNB5_rZnU" />
     </application>
 
 </manifest>

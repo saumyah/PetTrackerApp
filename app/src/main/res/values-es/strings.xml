@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Aplicación Pet Tracker</string>
+    <string name="title_activity_maps">Mapa</string>
+    <string name="Pets">Mascotas</string>
+    <string name="Map_Guide">Guía de mapas</string>
+    <string name="help">Ayudar</string>
+    <string name="exit">Salida</string>
+    <string name="back">Atrás</string>
+    <string name="settings">Ajustes</string>
+    <string name="helpString">Ayuda para la aplicación. Para usar la aplicación, cree una nueva mascota, y con la nueva mascota creada, ahora puede acceder a la información junto con una guía de mapa y un temporizador de comida.</string>
+    <string name="refresh">Actualizar</string>
+    <string name="pet_info">Ingrese la información de su mascota</string>
+    <string name="name_input">Nombre</string>
+    <string name="type_input">Tipo</string>
+    <string name="age_input">Edad</string>
+    <string name="sex_input">Género</string>
+    <string name="weight_input">Peso</string>
+    <string name="submit_button">Enviar</string>
+    <string name="info_button">Ingrese Informacióno</string>
+    <string name="alarm">Ajustar alarma</string>
+    <string name="alarm2">Alarma</string>
+    <string name="alarm3">Por favor, configure la alarma</string>
+    <string name="cancel">Cancelar</string>
+    <string name="language">Idioma</string>
+</resources>

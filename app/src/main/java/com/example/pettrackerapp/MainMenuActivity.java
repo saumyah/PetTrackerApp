@@ -2,15 +2,14 @@ package com.example.pettrackerapp;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
+import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import timber.log.Timber;
+import java.util.Locale;
 
 public class MainMenuActivity extends Activity {
 
@@ -21,6 +20,8 @@ public class MainMenuActivity extends Activity {
     private Button mAlarmButton;
     private Button mMapButton;
     private Button mExitButton;
+    private Button mSettingsButton;
+    private Button refreshButton;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +33,21 @@ public class MainMenuActivity extends Activity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainMenuActivity.this, HelpActivity.class);
+                startActivity(intent);
+            }
+        });
+        refreshButton = (Button) findViewById(R.id.buttonRefresh2);
+        refreshButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                recreate();
+            }
+        });
+        mSettingsButton = (Button) findViewById(R.id.buttonSettings);
+        mSettingsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainMenuActivity.this, SettingsActivity.class);
                 startActivity(intent);
             }
         });
@@ -77,7 +93,7 @@ public class MainMenuActivity extends Activity {
         });
     }
 
-            public void onStart() {
+    public void onStart() {
                 super.onStart();
                 Log.d(TAG, "onStart()");
             }
